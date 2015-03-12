@@ -5,171 +5,10 @@
 #include <list>
 #include <ctime>
 #include <windows.h>
+#include "spine.h"
 
 
 
-using namespace std;
-
-class benchmark
-{
-        int* data;
-    public:
-        void file(string);
-        string generate_data(int);
-        void test(list<int>, int, int, int);
-        int getdatapiece(int);
-        void resize_array(int);
-        benchmark(int);
-        ~benchmark();
-};
-
-
-benchmark::~benchmark(){
-    delete [] data;
-    delete data;
-}
-
-void benchmark::resize_array(int array_size)
-{/*niezbedne do konstruktora*/
-    int* temp = new int[array_size];
-    delete [] data;
-    data = temp;
-    delete temp;
-}
-
-
-
-benchmark::benchmark(int array_size)
-{/*Bardzo brzydkie rozwiazanie, ale nie mam pomyslu jak to zrobic ladniej*/
-    data = new int[array_size];
-}
-
-
-
-string benchmark::generate_data(int array_size)
-{/*generowanie danych*/
- int i, j, number;
- number = array_size;
- string filename;
- srand( time( NULL ) );
- cout<<"Wpisz nazwe pliku"<<endl;
- cin>>filename;
- filename.append(".txt");
- fstream plik;
- plik.open(filename.c_str(),ios::out);
- for( i = 0; i < number; i++ )
- {
- j = rand(); //losuj liczbê
- j = j%100;
- cout << j << endl; //wypisz na ekran
- if (i==0)
-    plik <<j;
- else
-    plik << endl << j; //zapisz liczbê do pliku
- }
- plik.close();
- return filename;
-}
-
-void benchmark::file(string filename)
-{/*wczytanie pliku txt*/
-    cout<<"Wczytuje plik "<<filename<<endl;
-    int j;
-    int i=0;
-    fstream plik; //zadeklarowanie obiektu strumieniowego typu fstream
-    //pod nazw¹ "plik"
-    plik.open(filename.c_str(), ios::in); //otwórz plik do odczytu
-    cout<<"Wczytano plik"<<endl;
-    if ( plik.is_open()){ //je¿eli plik zosta³ otwarty
-            cout<<"Plik jest otwarty"<<endl;
-            while( !plik.eof() ) //dopóki nie spotkasz koniec pliku. Z jakiegos powodu czasem czyta jedna liczbe wiecej i sie wysypuje bo nie ma miejsca w tablicy data.
-            {
-                plik >> j; //czytaj liczbê z pliku
-                cout<<"wczytano liczbe "<<j<<" z pliku"<<endl;
-                data[i]=j;
-                cout<<"wczytano "<<j<<endl;
-                i++;
-            }
-            plik.close();
-            cout<<"zamknieto plik"<<endl;
-            }
-
-    else
-        cout<<"nie otwarto pliku"<<endl;
-}
-void benchmark::test(list<int> lista, int initial,int steps, int repetitions)
-{/*Pisane bezposrednio pod liste. Modyfikacja tej funkcji bedzie niezbedna do badania jakichkolwiek innych programow*/
-    int i;
-    int j;
-    int k;
-    int l;
-    double milisec;
-    double* total_time = new double[repetitions];
-    double* result_time = new double[steps];
-    double mean_time=0;
-    int amount_of_data=initial;
-    for(i=0; i<steps; i++)
-    {
-        cout<<"liczba danych w powtorzeniu"<<amount_of_data<<endl;
-        cout<<"krok "<<i+1<<endl;
-        for(j=0;j<repetitions;j++)
-        {
-            cout<<"powtorzenie "<<j+1<<endl;
-            for(k=0; k<amount_of_data; k++)
-            {
-                cout<<"pushing "<<data[k]<<endl;
-                lista.push_back(data[k]); //przypisanie okreslonej ilosci danych do listy
-            }
-            list<int>::iterator it;
-            /*stoper start*/
-            LONGLONG Frequency, CurrentTime, LastTime;
-            double TimeScale;
-            QueryPerformanceFrequency( (LARGE_INTEGER*) &Frequency);
-            TimeScale = (1.0/Frequency)*1000.0;
-            QueryPerformanceCounter( (LARGE_INTEGER*) &LastTime);
-            for (list<int>::iterator it=lista.begin(); it != lista.end(); ++it)
-            {
-            cout<<"liczba przed zmiana: "<<*it<<endl;
-            *it=*it*2;
-            cout<<"liczba po zmianie: "<<*it<<endl;
-            }
-            QueryPerformanceCounter( (LARGE_INTEGER*) &CurrentTime);
-            milisec = (CurrentTime-LastTime)*TimeScale;
-            total_time[j]=milisec;
-            mean_time = mean_time+total_time[j];
-            cout<<"czas: "<<total_time[j]<<endl;
-            /*stoper stop*/
-            for(int m=0; m<amount_of_data; m++)
-            {
-                lista.pop_back(); //oczyszczenie listy i przygotowanie do kolejnej fazy testu
-                cout<<"popping"<<endl;
-            }
-            mean_time = mean_time/repetitions;
-            cout<<"sredni czas: "<<mean_time<<endl;
-            result_time[i]=mean_time;
-        }
-        amount_of_data = amount_of_data*10;
-    }
-    cout<<"Wpisz nazwe pliku w ktorym zapisany zostanie wynik";
-    cout<<endl;
-    string filename;
-    cin>>filename;
-    filename.append(".txt");
-    fstream plik;
-    plik.open(filename.c_str(),ios::out);
-    amount_of_data=initial;
-    for( i = 0; i < steps; i++ )
-        {
-            plik<<"Dla "<<amount_of_data<<" danych :";
-                j=total_time[i];
-            plik << result_time[i]<<endl;
-            amount_of_data = amount_of_data*10;
-        }
-    plik<<endl;
-    plik.close();
-    delete[] total_time;
-    delete[] result_time;
-}
 
 int main()
 {
@@ -182,6 +21,7 @@ int main()
     char choice;
     string input;
     int array_size=1;
+    bool Debug_Mode = 0;
     while (finish!=1)
     {
         cout<<"Wybierz jedna z opcji:"<<endl<<"d/data/dane: zmien liczbe danych na ktorych bedzie pracowac program"<<endl;
@@ -193,6 +33,16 @@ int main()
         cout<<endl<<"wyjsciowe dane: 10 danych, 1 krok, 1 powtorzenie"<<endl<<endl;
         cin>>input;
         cout<<endl;
+        if (input=="DebugMode=0")
+        {
+            choice = 'q';
+        }
+        else
+        if (input=="DebugMode=1")
+        {
+            choice = 'z';
+        }
+        else
         if (input=="d"||input=="data"||input=="dane")
         {
             choice = 'd';
@@ -229,38 +79,47 @@ int main()
 
        switch(choice)
        {
+       case 'q':
+        {
+            Debug_Mode = 0;
+            break;
+        }
+       case 'z':
+        {
+            Debug_Mode = 1;
+            break;
+        }
        case 'd':
-           {
-        cout<<"poczatkowa liczba danych?"<<endl;
-        cin>>initial;
-          break;
-           }
+        {
+            cout<<"poczatkowa liczba danych?"<<endl;
+            cin>>initial;
+            break;
+        }
        case 's' :
-           {
-        cout<<endl<<"liczba krokow (10x wiecej danych w kazdym)?"<<endl;
-        cin>>steps;
-          break;
-           }
+        {
+            cout<<endl<<"liczba krokow (10x wiecej danych w kazdym)?"<<endl;
+            cin>>steps;
+            break;
+        }
        case 'r':
-           {
-        cout<<endl<<"liczba powtorzen w kazdym kroku?"<<endl;
-        cin>>repetitions;
-        break;
-           }
+        {
+            cout<<endl<<"liczba powtorzen w kazdym kroku?"<<endl;
+            cin>>repetitions;
+            break;
+        }
        case 'g' :
-           {
+        {
             array_size=initial;
             for(int i=1;i<steps;i++)
             {
                 array_size = array_size*10;
             }
-            cout<<"Rozmiar tablicy wynosi "<<array_size<<endl;
-            benchmark* test1 = new benchmark(array_size);
-            test1->file(test1->generate_data(array_size));
-            test1->test(lista, initial, steps, repetitions);
+            benchmark* test1 = new benchmark(array_size, Debug_Mode);
+            test1->file(test1->generate_data(array_size, Debug_Mode),Debug_Mode);
+            test1->test(lista, initial, steps, repetitions, Debug_Mode);
             delete test1;
             break;
-           }
+        }
        case 'h':
            {
                 cout<<"d/dane/data: zmien liczbe danych na ktorych bedzie pracowac program"<<endl;
@@ -269,6 +128,7 @@ int main()
                 cout<<"go/wykonaj/execute: wykonaj program przy wczesniej okreslonej liczbie danych"<<endl;
                 cout<<"x/koniec/exit: zakoncz dzialanie programu"<<endl;
                 cout<<"h/pomoc/help: wyswietl pomoc"<<endl;
+                cout<<"DebugMode = 1 lub 0 aby wlaczyc lub wylaczyc wyswietlanie danych na ekran"<<endl;
                 cout<<endl<<"wyjsciowe dane: 10 danych, 1 krok, 1 powtorzenie"<<endl;
               break;
            }
