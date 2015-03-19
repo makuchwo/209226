@@ -133,6 +133,14 @@ void benchmark::test(dllist * lista, int initial,int steps, int repetitions, boo
             {
                 cout<<"powtorzenie "<<j+1<<endl;
             }
+            /*stoper start*/
+            LONGLONG Frequency, CurrentTime, LastTime;
+            double TimeScale;
+            QueryPerformanceFrequency( (LARGE_INTEGER*) &Frequency);
+            TimeScale = (1.0/Frequency)*1000.0;
+            QueryPerformanceCounter( (LARGE_INTEGER*) &LastTime);
+
+            //stoper mierzy czas dla tej petli
             for(k=0; k<amount_of_data; k++)
             {
                 if(Debug_Mode)
@@ -144,31 +152,6 @@ void benchmark::test(dllist * lista, int initial,int steps, int repetitions, boo
             }
 
             cout<<"---done pushing---"<<endl;
-            /*stoper start*/
-            LONGLONG Frequency, CurrentTime, LastTime;
-            double TimeScale;
-            QueryPerformanceFrequency( (LARGE_INTEGER*) &Frequency);
-            TimeScale = (1.0/Frequency)*1000.0;
-            QueryPerformanceCounter( (LARGE_INTEGER*) &LastTime);
-
-            //stoper mierzy czas dla tej petli
-            cell* it = lista->get_list();
-            cout<<"---it init---"<<endl;
-            while(it->get_next()!=NULL)
-            {
-                cout<<"---working... (it!=null)---"<<endl;
-                if(Debug_Mode)
-                {
-                    cout<<"liczba przed zmiana: "<<it->get_value()<<endl;
-                }
-                it->set_value(it->get_value()*2);
-                it=it->get_next();
-                if(Debug_Mode)
-                {
-                    cout<<"liczba po zmianie: "<<it->get_value()<<endl;
-                }
-            }
-
             QueryPerformanceCounter( (LARGE_INTEGER*) &CurrentTime);
             milisec = (CurrentTime-LastTime)*TimeScale;
             total_time[j]=milisec;
@@ -177,19 +160,6 @@ void benchmark::test(dllist * lista, int initial,int steps, int repetitions, boo
             {
                 cout<<"czas: "<<total_time[j]<<endl;
             }
-
-            cout<<"---im outta loop---"<<endl;
-            /*stoper stop*/
-           /* for(int m=0; m<amount_of_data; m++)
-            {
-                lista->delete_cell(m); //oczyszczenie listy i przygotowanie do kolejnej fazy testu
-                lista->print_list();
-                if(Debug_Mode)
-                {
-                    cout<<"popping"<<endl;
-                }
-            } */
-
             delete lista;
             lista = new dllist();
 
