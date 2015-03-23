@@ -3,7 +3,7 @@
 #include <math.h>
 #ifndef ARRAY1H
 #define ARRAY1H
-
+using namespace std;
 class darray
 {
 private:
@@ -11,7 +11,7 @@ private:
     int size;
 public:
     darray(int, bool);
-    ~darray(bool);
+    ~darray();
     int getsize(bool);
     int get_elem(int, bool);
     void set_elem(int, int, bool);
@@ -19,13 +19,34 @@ public:
     void set_array(int*, bool);
     void print_array(bool);
     void resize(int, bool);
+    void merge(int*, bool);
+    void append(int, bool);
 };
+void darray::merge(int* add_tab, bool DM)
+{
+    int old_size=size;
+    int border;
+    resize(sizeof(add_tab)/sizeof(int), DM);
+    for( int i=0;i<old_size;i++)
+    {
+        border = i;
+    }
+    for( int i=border;i<size;i++)
+    {
+        tab[i]=add_tab[i-border];
+    }
+}
+void darray::append(int value, bool DM)
+{
+    resize(1, DM);
+    tab[size-1]=value;
+}
 int darray::getsize(bool DM)
 {
     if(DM){cout<<"array size: "<<size<<endl;}
     return size;
 }
-int darray::get_elem(int index; bool DM)
+int darray::get_elem(int index, bool DM)
 {
     if(DM){cout<<"----getting element with index "<<index<<"----"<<endl;}
     return tab[index];
@@ -43,21 +64,21 @@ int* darray::get_array(bool DM)
 }
 void darray::set_array(int input[], bool DM)
 {
-    if(((sizeof input)/(sizeof int))>size)
+    if(((sizeof(input))/(sizeof(int))>size))
     {
-        cout<<"Error: input array is too big. Aborting operation..."<<endl;
+        cout<<"Error: input array is too big. REsizing output array..."<<endl;
+        resize(sizeof(input)/sizeof(int)-size, DM);
     }
-    else
-        for (i=0; i<((sizeof input)/(sizeof int)); i++)
-        {
-            if(DM){cout<<"----setting element with index "<<i<<"to value "<<input[i]<<"----"<<endl;}
-            tab[i]=input[i];
-            if(DM){cout<<"...done"<<endl;}
-        }
+    for (int i=0; i<((sizeof (input))/(sizeof (int))); i++)
+    {
+        if(DM){cout<<"----setting element with index "<<i<<"to value "<<input[i]<<"----"<<endl;}
+        tab[i]=input[i];
+        if(DM){cout<<"...done"<<endl;}
+    }
 }
-void darray::print_array()
+void darray::print_array(bool DM)
 {
-    for(i=0;i<size;i++)
+    for(int i=0;i<size;i++)
     {
         cout<<"The element with index "<<i<<" has value "<<tab[i]<<endl;
     }
@@ -65,11 +86,12 @@ void darray::print_array()
 void darray::resize(int increase, bool DM)
 {
     if(DM){cout<<"----creating temp----"<<endl;}
-    int temp[size] = tab;
+    int * temp = new int[size];
+    temp = tab;
     if(DM){cout<<"...done"<<endl;}
     if(DM){cout<<"resizing array"<<endl;}
     size = size+increase;
-    delete tab[];
+    delete[] tab;
     delete tab;
     tab = new int[size];
     if(increase>=0)
@@ -87,12 +109,17 @@ void darray::resize(int increase, bool DM)
         }
     }
 }
-darray::darray(int init, bool DM;)
+darray::darray(int init, bool DM)
 {
     if(DM){cout<<"----initializing array----"<<endl;}
     tab = new int[init];
     size=init;
     if(DM){cout<<"...done"<<endl;}
     if(DM){cout<<"array size is: "<<size<<endl;}
+}
+darray::~darray()
+{
+    delete[] tab;
+    delete tab;
 }
 #endif // ARRAY1H
