@@ -16,9 +16,9 @@ private:
 public:
 /* Deklaracja funkcji */
 	void append(cell * other);
-	cell * get_list();
-	void set_list(cell * new_last);
-	void print_list();
+	cell * get_stack();
+	void set_stack(cell * new_last);
+	void print_stack();
 	void pop();
 
     stack();
@@ -26,7 +26,7 @@ public:
 
 };
 
-void stack::print_list(){
+void stack::print_stack(){
 	cell * current=last;
 
 	while(current!=NULL){
@@ -36,20 +36,21 @@ void stack::print_list(){
 
 	cout<<endl;
 }
+
 /* getter : first */
-cell * stack::get_list(){
+cell * stack::get_stack(){
 	return last;
 }
 
 /* setter : first */
-void stack::set_list(cell * new_last){
+void stack::set_stack(cell * new_last){
 	this->last=new_last;
 }
 
 
 /* Konstruktor bazowy */
 stack::stack(){
-	first = NULL;
+	last = NULL;
 	size = 0;
 }
 
@@ -72,25 +73,35 @@ stack::~stack(){
 
 /* Dodaje element na koniec listy */
 
-void stack::append(cell * other)
-{
+void stack::append(cell * other){
+
 	if(this->last==NULL){
 		this->last=other;
 		return;
 	}
-
 	cell * destination = last;
-	destination->set_next(other);
-	other->set_prev(destination);
-	size++;
 
+	while(destination->get_prev()!=NULL)
+    {
+		destination=destination->get_prev();
+	}
+	destination->set_prev(other);
+	size++;
 }
 void stack::pop()
 {
-    cell * rubbish;
-    rubbish = last;
-    last = rubbish->get_prev();
-    delete rubbish;
-    size--;
+    cell * temp = last;
+    if (temp->get_prev()!=NULL)
+    {
+        last = last->get_prev();
+        delete temp;
+    }
+    else
+        {
+            //usuwanie ostanitego elementu listy
+            last = NULL;
+            delete temp;
+        }
+    size --;
 }
 #endif

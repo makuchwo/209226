@@ -160,7 +160,23 @@ void benchmark::test(stack * stos, int initial,int steps, int repetitions, bool 
             {
                 cout<<"czas: "<<total_time[j]<<endl;
             }
-            delete stos;
+
+            if(Debug_Mode)
+            {
+                cout<<"czas: "<<total_time[j]<<endl;
+            }
+            while(stos->get_stack()!=NULL)
+            {
+                if(Debug_Mode)
+                {
+                    cout<<"Popping..."<<endl;
+                }
+                stos->pop();
+                if(Debug_Mode)
+                {
+                    cout<<"...done"<<endl;
+                }
+            }
             stos = new stack();
 
             cout<<"---list refreshed---"<<endl;
