@@ -34,7 +34,7 @@ int menu()
         cout<<"g/go/execute/wykonaj: wykonaj program przy wczesniej okreslonej liczbie danych"<<endl;
         cout<<"x/exit/wyjdz/zakoncz: zakoncz dzialanie programu"<<endl;
         cout<<"h/help/pomoc: wyswietl pomoc"<<endl;
-        cout<<endl<<"wyjsciowe dane: 10 danych, 1 krok, 1 powtorzenie"<<endl<<endl;
+        cout<<endl<<"wyjsciowe dane: "<<initial<<" danych, "<<steps<<" krokow, "<<repetitions<<" powtorzen"<<endl;
         cin>>input;
         cout<<endl;
         if (input=="DebugMode=0")
@@ -139,7 +139,7 @@ int menu()
                 cout<<"x/koniec/exit: zakoncz dzialanie programu"<<endl;
                 cout<<"h/pomoc/help: wyswietl pomoc"<<endl;
                 cout<<"DebugMode = 1 lub 0 aby wlaczyc lub wylaczyc wyswietlanie danych na ekran"<<endl;
-                cout<<endl<<"wyjsciowe dane: 10 danych, 1 krok, 1 powtorzenie"<<endl;
+                cout<<endl<<"wyjsciowe dane: "<<initial<<" danych, "<<steps<<" krokow, "<<repetitions<<" powtorzen"<<endl;
               break;
            }
        case 'x':
