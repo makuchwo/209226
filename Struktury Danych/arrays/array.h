@@ -21,7 +21,12 @@ public:
     void resize(int, bool);
     void merge(int*, bool);
     void append(int, bool);
+    darray();
 };
+darray::darray()
+{
+    size = 0;
+}
 void darray::merge(int* add_tab, bool DM)
 {
     int old_size=size;
@@ -64,7 +69,7 @@ int* darray::get_array(bool DM)
 }
 void darray::set_array(int input[], bool DM)
 {
-    if(((sizeof(input))/(sizeof(int))>size))
+    if(((sizeof(input))/(sizeof(int))>(unsigned int) size))
     {
         cout<<"Error: input array is too big. REsizing output array..."<<endl;
         resize(sizeof(input)/sizeof(int)-size, DM);
@@ -89,7 +94,7 @@ void darray::resize(int increase, bool DM)
     int * temp = new int[size];
     temp = tab;
     if(DM){cout<<"...done"<<endl;}
-    if(DM){cout<<"resizing array"<<endl;}
+    if(DM){cout<<"resizing array..."<<endl;}
     size = size+increase;
     delete[] tab;
     delete tab;
@@ -108,6 +113,9 @@ void darray::resize(int increase, bool DM)
             tab[i] = temp[i];
         }
     }
+    if(DM){cout<<"...done"<<endl;}
+    delete[] temp;
+    delete temp;
 }
 darray::darray(int init, bool DM)
 {
