@@ -1,0 +1,6 @@
+Dla 10 danych :0.531124
+Dla 100 danych :0.853775
+Dla 1000 danych :4.31437
+Dla 10000 danych :321.197
+Dla 100000 danych :30142.6
+
