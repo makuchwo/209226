@@ -57,5 +57,21 @@ double tm = performanceCountEnd.QuadPart - performanceCountStart.QuadPart;
 return tm;
 }
 
+double licz2(dllist *obiekt, int N)
+{
+LARGE_INTEGER performanceCountStart,performanceCountEnd;
+
+for(int i=0; i<N; i++)
+{
+obiekt->append(new cell(rand()%10));
+}
+performanceCountStart = startTimer(); //zapamiêtujemy czas pocz¹tkowy'
+obiekt->heapsort(N-1);
+performanceCountEnd = endTimer(); //zapamiêtujemy koniec czasu
+
+double tm = performanceCountEnd.QuadPart - performanceCountStart.QuadPart;
+return tm;
+}
+
 
 #endif // STOPER_HH_INCLUDED

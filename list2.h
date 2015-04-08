@@ -21,12 +21,52 @@ public:
 	void pop();
 
 	int get_size()const { return size; }
+    int quicksort(int lewy, int prawy);
+    int Zamien(int q1, int q2);
+    int idz(int indeks)const;
+
+void KopcowanieDolem(int ojciec,int ostatni);
+void BudujKopiec(int ostatni);
+void KopcowanieGora(int ostatni);
+void heapsort(int ostatni);
 
     dllist();
     ~dllist();
 
+};
 
-    int Zamien(int q1, int q2)
+
+void dllist::print_list(){
+	cell * current=first;
+
+	while(current!=NULL){
+		cout<<current->get_value()<<" ";
+		current=current->get_next();
+	}
+
+	cout<<endl;
+}
+
+
+
+
+int dllist::idz(int indeks)const
+    {
+        if(indeks<0) { cout << "blad1" << endl; return -1; }
+        if(indeks>=size) { cout << "blad2" << endl; return -1; }
+        if(first==NULL) {cout << "blad3" << endl; return -1; }
+
+        cell *wsk=first;
+        for(int i=0;i<indeks;i++)
+        {
+            wsk=wsk->get_next();
+        }
+        return wsk->get_value();
+  //      cout << wsk->get_value() << endl;
+    }
+
+
+ int dllist::Zamien(int q1, int q2)
     {
         if(q1==q2)
         {
@@ -44,27 +84,13 @@ public:
         return 0;
     }
 
-    int idz(int indeks)const
-    {
-        if(indeks<0) { cout << "blad1" << endl; return -1; }
-        if(indeks>=size) { cout << "blad2" << endl; return -1; }
-        if(first==NULL) {cout << "blad3" << endl; return -1; }
 
-        cell *wsk=first;
-        for(int i=0;i<indeks;i++)
+
+int dllist::quicksort(int lewy, int prawy)
         {
-            wsk=wsk->get_next();
-        }
-        return wsk->get_value();
-  //      cout << wsk->get_value() << endl;
-    }
-
-
-        int quicksort(int left, int right)
-        {
-            int i=left;
-            int j=right;
-            int piwot=idz((left+right)/2);
+            int i=lewy;
+            int j=prawy;
+            int piwot=idz((lewy+prawy)/2);
             do
             {
                 while(idz(i)<piwot)
@@ -80,24 +106,74 @@ public:
                 }
             }while(i<=j);
 
-            if(left<j)   quicksort(left,j);
-            if(right>i)  quicksort(i,right);
+            if(lewy<j)   quicksort(lewy,j);
+            if(prawy>i)  quicksort(i,prawy);
         }
 
+ void dllist::KopcowanieDolem(int ojciec,int ostatni)
+    {
+    int dziecko;
+    dziecko=2*ojciec;
+        while(dziecko<=ostatni)
+        {
+            if((dziecko+1<=ostatni)&&(idz(dziecko+1)>idz(dziecko)))
+            dziecko++;
+                if(idz(ojciec)<idz(dziecko))
+                Zamien(ojciec,dziecko);
+
+        ojciec=dziecko;
+        dziecko=2*ojciec;
+        }
+    }
+
+    void dllist::BudujKopiec(int ostatni)
+    {
+    int i;
+        for(i=ostatni/2;i>0;i--)
+            KopcowanieDolem(i,ostatni);
+    }
 
 
-};
+    void dllist::KopcowanieGora(int ostatni)
+    {
+    int ojciec, dziecko;
+    int tmp;
+    ojciec=1;
+    dziecko=2*ojciec;
+        while(dziecko<=ostatni)
+        {
+            if((dziecko+1<=ostatni)&&(idz(dziecko+1)>idz(dziecko)))
+            dziecko++;
 
-void dllist::print_list(){
-	cell * current=first;
+        Zamien(ojciec,dziecko);
+        ojciec=dziecko;
+        dziecko=2*ojciec;
+        }
+            while((ojciec>1)&&(idz(ojciec)>idz(ojciec/2)))
+            {
+            tmp=ojciec/2;
+            Zamien(ojciec,tmp);
+            ojciec=ojciec/2;
+            }
+    }
 
-	while(current!=NULL){
-		cout<<current->get_value()<<" ";
-		current=current->get_next();
-	}
+    void dllist::heapsort(int ostatni)
+    {
+    int l=1;
+    BudujKopiec(ostatni);
+        while(ostatni>1)
+        {
+        Zamien(l,ostatni);
+        ostatni--;
+        KopcowanieGora(ostatni);
+        }
+    }
 
-	cout<<endl;
-}
+
+
+
+
+
 
 /* Usuwa element o zadanym indeksie */
 /* Zwraca -1 w przypadku niepowodzenia */
