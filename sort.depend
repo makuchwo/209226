@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1428497441 source:c:\users\1\desktop\sort\main.cpp
+	<iostream>
+	<cstdlib>
+	<fstream>
+	"list2.h"
+	"cell.h"
+	"Stoper.hh"
+	<windows.h>
+
+1428500103 c:\users\1\desktop\sort\list2.h
+	<iostream>
+	<math.h>
+	<ctime>
+	"cell.h"
+
+1428496218 c:\users\1\desktop\sort\cell.h
+	<iostream>
+	<math.h>
+
+1427363574 c:\users\1\desktop\sort\spine.h
+	<iostream>
+	<cstdlib>
+	<fstream>
+	<string>
+	"list2.h"
+	"Cell.h"
+	<ctime>
+	<windows.h>
+
+1428493063 c:\users\1\desktop\sort\stoper.hh
+	<windows.h>
+	<ctime>
+	<fstream>
+
