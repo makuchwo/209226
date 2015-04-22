@@ -32,10 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="cell.cpp" />
 		<Unit filename="cell.h" />
+		<Unit filename="list2.cpp" />
 		<Unit filename="list2.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="spine.h" />
+		<Unit filename="stoper.cpp" />
 		<Unit filename="stoper.hh" />
 		<Extensions>
 			<code_completion />

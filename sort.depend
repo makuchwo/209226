@@ -33,27 +33,39 @@
 	<ctime>
 	<fstream>
 
-1428522937 source:c:\users\1\desktop\lab4\main.cpp
+1429641630 source:c:\users\1\desktop\lab4\main.cpp
 	<iostream>
 	<cstdlib>
 	<fstream>
+	<ctime>
 	"list2.h"
 	"cell.h"
 	"Stoper.hh"
 	<windows.h>
 
-1428523158 c:\users\1\desktop\lab4\list2.h
+1429640605 c:\users\1\desktop\lab4\list2.h
 	<iostream>
 	<math.h>
 	<ctime>
 	"cell.h"
 
-1428496218 c:\users\1\desktop\lab4\cell.h
+1429640737 c:\users\1\desktop\lab4\cell.h
 	<iostream>
 	<math.h>
 
-1428493063 c:\users\1\desktop\lab4\stoper.hh
+1429642334 c:\users\1\desktop\lab4\stoper.hh
 	<windows.h>
 	<ctime>
 	<fstream>
+	"cell.h"
+	"list2.h"
+
+1429641369 source:c:\users\1\desktop\lab4\list2.cpp
+	"list2.h"
+	<iostream>
+	<cstdlib>
+
+1429640737 source:c:\users\1\desktop\lab4\cell.cpp
+	"cell.h"
+	<iostream>
 

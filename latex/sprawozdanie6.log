@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.5)  8 APR 2015 21:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.5)  21 APR 2015 19:58
 entering extended mode
-**Sprawozdanie.tex
-(C:\Users\1\Desktop\lab4\latex\Sprawozdanie.tex
+**sprawozdanie6.tex
+(C:\Users\1\Desktop\lab4\latex\sprawozdanie6.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -328,102 +328,101 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("F:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count88
-\float@exts=\toks17
-\float@box=\box26
-\@float@everytoks=\toks18
-\@floatcapt=\box27
-)
-(C:\Users\1\Desktop\lab4\latex\Sprawozdanie.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+(C:\Users\1\Desktop\lab4\latex\sprawozdanie6.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 ("F:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count89
+\scratchcounter=\count88
 \scratchdimen=\dimen105
-\scratchbox=\box28
-\nofMPsegments=\count90
-\nofMParguments=\count91
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count92
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count91
 \MPscratchDim=\dimen106
-\MPnumerator=\count93
-\makeMPintoPDFobject=\count94
-\everyMPtoPDFconversion=\toks20
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks18
 )
-LaTeX Font Info:    Try loading font information for OML+plm on input line 11.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 13.
  ("F:\Program Files\MiKTeX 2.9\tex\latex\polski\omlplm.fd"
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 11.
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 13.
 
 
 ("F:\Program Files\MiKTeX 2.9\tex\latex\polski\omsplsy.fd"
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 11.
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 13.
 
 
 ("F:\Program Files\MiKTeX 2.9\tex\latex\polski\omxplex.fd"
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 11.
+(Font)              <12> on input line 13.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 11.
+(Font)              <8> on input line 13.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 11.
+(Font)              <6> on input line 13.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10.95> on input line 21.
+(Font)              <10.95> on input line 25.
 
-<wykres1.pdf, id=1, 483.72722pt x 327.26266pt>
-File: wykres1.pdf Graphic file (type pdf)
- <use wykres1.pdf>
-Package pdftex.def Info: wykres1.pdf used on input line 24.
-(pdftex.def)             Requested size: 362.79451pt x 245.44638pt.
+<wykr.pdf, id=1, 483.72722pt x 313.04956pt>
+File: wykr.pdf Graphic file (type pdf)
+ <use wykr.pdf>
+Package pdftex.def Info: wykr.pdf used on input line 29.
+(pdftex.def)             Requested size: 362.79451pt x 234.78658pt.
 
-Overfull \hbox (2.79451pt too wide) in paragraph at lines 24--25
+Overfull \hbox (2.79451pt too wide) in paragraph at lines 29--30
  [][] 
  []
 
 [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <C:/Users/1/Desktop/la
-b4/latex/wykres1.pdf>] (C:\Users\1\Desktop\lab4\latex\Sprawozdanie.aux) ) 
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (23.6274pt too wide) in paragraph at lines 45--46
+\OT4/cmr/m/n/10.95 ‘rednia zªo-zo-no±¢ ob-li-cze-nio-wa al-go-rym-tu sor-to-wa-
+nia szyb-kie-go wy-no-si $\OML/plm/m/it/10.95 O\OT4/cmr/m/n/10.95 (\OML/plm/m/i
+t/10.95 nlogn\OT4/cmr/m/n/10.95 )$.
+ []
+
+[2 <C:/Users/1/Desktop/lab4/latex/wykr.pdf>] [3]
+(C:\Users\1\Desktop\lab4\latex\sprawozdanie6.aux) ) 
 Here is how much of TeX's memory you used:
- 1619 strings out of 493921
- 20511 string characters out of 3147295
- 72446 words of memory out of 3000000
- 4912 multiletter control sequences out of 15000+200000
+ 1560 strings out of 493921
+ 19746 string characters out of 3147295
+ 71075 words of memory out of 3000000
+ 4857 multiletter control sequences out of 15000+200000
  10831 words of font info for 32 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,7n,24p,635b,222s stack positions out of 5000i,500n,10000p,200000b,50000s
-{F:/Pr
-ogram Files/MiKTeX 2.9/fonts/enc/dvips/pl/plrm.enc}{F:/Program Files/MiKTeX 2.9
-/fonts/enc/dvips/pl/plmi.enc}<F:/Program Files/MiKTeX 2.9/fonts/type1/public/pl
-/plbx12.pfb><F:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plmi10.pfb><F:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/pl/plr10.pfb><F:/Program Files/MiKTe
-X 2.9/fonts/type1/public/pl/plr12.pfb><F:/Program Files/MiKTeX 2.9/fonts/type1/
-public/pl/plr17.pfb><F:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr8.pfb
-><F:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plsl10.pfb>
-Output written on Sprawozdanie.pdf (2 pages, 231768 bytes).
+ 27i,6n,24p,707b,216s stack positions out of 5000i,500n,10000p,200000b,50000s
+{F:/Program Files/MiKTeX 2.9
+/fonts/enc/dvips/pl/plrm.enc}{F:/Program Files/MiKTeX 2.9/fonts/enc/dvips/pl/pl
+mi.enc}<F:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plbx12.pfb><F:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/pl/plmi10.pfb><F:/Program Files/MiKTeX 2.
+9/fonts/type1/public/pl/plr10.pfb><F:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/pl/plr12.pfb><F:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr17.pfb><F
+:/Program Files/MiKTeX 2.9/fonts/type1/public/pl/plr8.pfb><F:/Program Files/MiK
+TeX 2.9/fonts/type1/public/pl/plsl10.pfb>
+Output written on sprawozdanie6.pdf (3 pages, 235294 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
